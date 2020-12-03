@@ -5,24 +5,24 @@
 {#
     TODO: Much of the data on this page is hard-coded! Replace the name, photo,
     variety, date planted, & id with the plant object's actual data, using what
-    is passed from the route's context. 
-    
+    is passed from the route's context.
+
     HINT: For example, you can use `plant.name` or `plant['name']` for the
     plant's name.
 #}
 
 <main>
-        <h1>Tomato</h1>
+        <h1>{{ plant.name }}</h1>
 
-        <img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4">
+        <img src="{{ plant.photo_url }}">
 
-        
+
 
         <section id="info">
             <h3>Info</h3>
 
             <strong>Date Planted</strong>
-            3/20/2020
+            {{ plant.date_planted}}
             <br><br>
 
             <strong>Variety</strong>
@@ -35,7 +35,7 @@
         <form action="/harvest/123456" method="POST">
             <fieldset>
                 <legend>Harvested:</legend>
-                
+
                 <label>
                     Amount harvested
                     <input type="text" name="harvested_amount" placeholder="e.g. 2 tomatoes">
@@ -51,7 +51,7 @@
         </form>
 
         {#
-            TODO: Create a for loop here to loop over all harvests (passed in 
+            TODO: Create a for loop here to loop over all harvests (passed in
             from the route's context) and display their information.
         #}
         <section id="harvest-history">
